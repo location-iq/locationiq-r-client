@@ -1,0 +1,12 @@
+Package: locationiq
+Title: R Package Client for LocationIQ
+Version: 1.0.0
+Authors@R: person("OpenAPI Generator community", email = "team@openapitools.org", role = c("aut", "cre"))
+Description: LocationIQ provides flexible enterprise-grade location based solutions. We work with developers, startups and enterprises worldwide serving billions of requests everyday. This page provides an overview of the technical aspects of our API and will help you get started.
+Depends: R (>= 3.3.3)
+Encoding: UTF-8
+License: Unlicense
+LazyData: true
+Suggests: testthat
+Imports: jsonlite, httr, R6
+RoxygenNote: 6.0.1.9000

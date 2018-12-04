@@ -12,13 +12,23 @@
 #' @field house_number 
 #' @field road 
 #' @field residential 
+#' @field borough 
+#' @field neighbourhood 
+#' @field quarter 
+#' @field hamlet 
+#' @field suburb 
+#' @field island 
 #' @field village 
+#' @field town 
+#' @field city 
+#' @field city_district 
 #' @field county 
 #' @field state 
+#' @field state_district 
 #' @field postcode 
 #' @field country 
 #' @field country_code 
-#' @field city 
+#' @field state_code 
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -29,14 +39,24 @@ Address <- R6::R6Class(
     `house_number` = NULL,
     `road` = NULL,
     `residential` = NULL,
+    `borough` = NULL,
+    `neighbourhood` = NULL,
+    `quarter` = NULL,
+    `hamlet` = NULL,
+    `suburb` = NULL,
+    `island` = NULL,
     `village` = NULL,
+    `town` = NULL,
+    `city` = NULL,
+    `city_district` = NULL,
     `county` = NULL,
     `state` = NULL,
+    `state_district` = NULL,
     `postcode` = NULL,
     `country` = NULL,
     `country_code` = NULL,
-    `city` = NULL,
-    initialize = function(`house_number`, `road`, `residential`, `village`, `county`, `state`, `postcode`, `country`, `country_code`, `city`){
+    `state_code` = NULL,
+    initialize = function(`house_number`, `road`, `residential`, `borough`, `neighbourhood`, `quarter`, `hamlet`, `suburb`, `island`, `village`, `town`, `city`, `city_district`, `county`, `state`, `state_district`, `postcode`, `country`, `country_code`, `state_code`){
       if (!missing(`house_number`)) {
         stopifnot(is.character(`house_number`), length(`house_number`) == 1)
         self$`house_number` <- `house_number`
@@ -49,9 +69,45 @@ Address <- R6::R6Class(
         stopifnot(is.character(`residential`), length(`residential`) == 1)
         self$`residential` <- `residential`
       }
+      if (!missing(`borough`)) {
+        stopifnot(is.character(`borough`), length(`borough`) == 1)
+        self$`borough` <- `borough`
+      }
+      if (!missing(`neighbourhood`)) {
+        stopifnot(is.character(`neighbourhood`), length(`neighbourhood`) == 1)
+        self$`neighbourhood` <- `neighbourhood`
+      }
+      if (!missing(`quarter`)) {
+        stopifnot(is.character(`quarter`), length(`quarter`) == 1)
+        self$`quarter` <- `quarter`
+      }
+      if (!missing(`hamlet`)) {
+        stopifnot(is.character(`hamlet`), length(`hamlet`) == 1)
+        self$`hamlet` <- `hamlet`
+      }
+      if (!missing(`suburb`)) {
+        stopifnot(is.character(`suburb`), length(`suburb`) == 1)
+        self$`suburb` <- `suburb`
+      }
+      if (!missing(`island`)) {
+        stopifnot(is.character(`island`), length(`island`) == 1)
+        self$`island` <- `island`
+      }
       if (!missing(`village`)) {
         stopifnot(is.character(`village`), length(`village`) == 1)
         self$`village` <- `village`
+      }
+      if (!missing(`town`)) {
+        stopifnot(is.character(`town`), length(`town`) == 1)
+        self$`town` <- `town`
+      }
+      if (!missing(`city`)) {
+        stopifnot(is.character(`city`), length(`city`) == 1)
+        self$`city` <- `city`
+      }
+      if (!missing(`city_district`)) {
+        stopifnot(is.character(`city_district`), length(`city_district`) == 1)
+        self$`city_district` <- `city_district`
       }
       if (!missing(`county`)) {
         stopifnot(is.character(`county`), length(`county`) == 1)
@@ -60,6 +116,10 @@ Address <- R6::R6Class(
       if (!missing(`state`)) {
         stopifnot(is.character(`state`), length(`state`) == 1)
         self$`state` <- `state`
+      }
+      if (!missing(`state_district`)) {
+        stopifnot(is.character(`state_district`), length(`state_district`) == 1)
+        self$`state_district` <- `state_district`
       }
       if (!missing(`postcode`)) {
         stopifnot(is.character(`postcode`), length(`postcode`) == 1)
@@ -73,9 +133,9 @@ Address <- R6::R6Class(
         stopifnot(is.character(`country_code`), length(`country_code`) == 1)
         self$`country_code` <- `country_code`
       }
-      if (!missing(`city`)) {
-        stopifnot(is.character(`city`), length(`city`) == 1)
-        self$`city` <- `city`
+      if (!missing(`state_code`)) {
+        stopifnot(is.character(`state_code`), length(`state_code`) == 1)
+        self$`state_code` <- `state_code`
       }
     },
     toJSON = function() {
@@ -89,14 +149,44 @@ Address <- R6::R6Class(
       if (!is.null(self$`residential`)) {
         AddressObject[['residential']] <- self$`residential`
       }
+      if (!is.null(self$`borough`)) {
+        AddressObject[['borough']] <- self$`borough`
+      }
+      if (!is.null(self$`neighbourhood`)) {
+        AddressObject[['neighbourhood']] <- self$`neighbourhood`
+      }
+      if (!is.null(self$`quarter`)) {
+        AddressObject[['quarter']] <- self$`quarter`
+      }
+      if (!is.null(self$`hamlet`)) {
+        AddressObject[['hamlet']] <- self$`hamlet`
+      }
+      if (!is.null(self$`suburb`)) {
+        AddressObject[['suburb']] <- self$`suburb`
+      }
+      if (!is.null(self$`island`)) {
+        AddressObject[['island']] <- self$`island`
+      }
       if (!is.null(self$`village`)) {
         AddressObject[['village']] <- self$`village`
+      }
+      if (!is.null(self$`town`)) {
+        AddressObject[['town']] <- self$`town`
+      }
+      if (!is.null(self$`city`)) {
+        AddressObject[['city']] <- self$`city`
+      }
+      if (!is.null(self$`city_district`)) {
+        AddressObject[['city_district']] <- self$`city_district`
       }
       if (!is.null(self$`county`)) {
         AddressObject[['county']] <- self$`county`
       }
       if (!is.null(self$`state`)) {
         AddressObject[['state']] <- self$`state`
+      }
+      if (!is.null(self$`state_district`)) {
+        AddressObject[['state_district']] <- self$`state_district`
       }
       if (!is.null(self$`postcode`)) {
         AddressObject[['postcode']] <- self$`postcode`
@@ -107,8 +197,8 @@ Address <- R6::R6Class(
       if (!is.null(self$`country_code`)) {
         AddressObject[['country_code']] <- self$`country_code`
       }
-      if (!is.null(self$`city`)) {
-        AddressObject[['city']] <- self$`city`
+      if (!is.null(self$`state_code`)) {
+        AddressObject[['state_code']] <- self$`state_code`
       }
 
       AddressObject
@@ -124,14 +214,44 @@ Address <- R6::R6Class(
       if (!is.null(AddressObject$`residential`)) {
         self$`residential` <- AddressObject$`residential`
       }
+      if (!is.null(AddressObject$`borough`)) {
+        self$`borough` <- AddressObject$`borough`
+      }
+      if (!is.null(AddressObject$`neighbourhood`)) {
+        self$`neighbourhood` <- AddressObject$`neighbourhood`
+      }
+      if (!is.null(AddressObject$`quarter`)) {
+        self$`quarter` <- AddressObject$`quarter`
+      }
+      if (!is.null(AddressObject$`hamlet`)) {
+        self$`hamlet` <- AddressObject$`hamlet`
+      }
+      if (!is.null(AddressObject$`suburb`)) {
+        self$`suburb` <- AddressObject$`suburb`
+      }
+      if (!is.null(AddressObject$`island`)) {
+        self$`island` <- AddressObject$`island`
+      }
       if (!is.null(AddressObject$`village`)) {
         self$`village` <- AddressObject$`village`
+      }
+      if (!is.null(AddressObject$`town`)) {
+        self$`town` <- AddressObject$`town`
+      }
+      if (!is.null(AddressObject$`city`)) {
+        self$`city` <- AddressObject$`city`
+      }
+      if (!is.null(AddressObject$`city_district`)) {
+        self$`city_district` <- AddressObject$`city_district`
       }
       if (!is.null(AddressObject$`county`)) {
         self$`county` <- AddressObject$`county`
       }
       if (!is.null(AddressObject$`state`)) {
         self$`state` <- AddressObject$`state`
+      }
+      if (!is.null(AddressObject$`state_district`)) {
+        self$`state_district` <- AddressObject$`state_district`
       }
       if (!is.null(AddressObject$`postcode`)) {
         self$`postcode` <- AddressObject$`postcode`
@@ -142,8 +262,8 @@ Address <- R6::R6Class(
       if (!is.null(AddressObject$`country_code`)) {
         self$`country_code` <- AddressObject$`country_code`
       }
-      if (!is.null(AddressObject$`city`)) {
-        self$`city` <- AddressObject$`city`
+      if (!is.null(AddressObject$`state_code`)) {
+        self$`state_code` <- AddressObject$`state_code`
       }
     },
     toJSONString = function() {
@@ -152,24 +272,44 @@ Address <- R6::R6Class(
            "house_number": %s,
            "road": %s,
            "residential": %s,
+           "borough": %s,
+           "neighbourhood": %s,
+           "quarter": %s,
+           "hamlet": %s,
+           "suburb": %s,
+           "island": %s,
            "village": %s,
+           "town": %s,
+           "city": %s,
+           "city_district": %s,
            "county": %s,
            "state": %s,
+           "state_district": %s,
            "postcode": %s,
            "country": %s,
            "country_code": %s,
-           "city": %s
+           "state_code": %s
         }',
         self$`house_number`,
         self$`road`,
         self$`residential`,
+        self$`borough`,
+        self$`neighbourhood`,
+        self$`quarter`,
+        self$`hamlet`,
+        self$`suburb`,
+        self$`island`,
         self$`village`,
+        self$`town`,
+        self$`city`,
+        self$`city_district`,
         self$`county`,
         self$`state`,
+        self$`state_district`,
         self$`postcode`,
         self$`country`,
         self$`country_code`,
-        self$`city`
+        self$`state_code`
       )
     },
     fromJSONString = function(AddressJson) {
@@ -177,13 +317,23 @@ Address <- R6::R6Class(
       self$`house_number` <- AddressObject$`house_number`
       self$`road` <- AddressObject$`road`
       self$`residential` <- AddressObject$`residential`
+      self$`borough` <- AddressObject$`borough`
+      self$`neighbourhood` <- AddressObject$`neighbourhood`
+      self$`quarter` <- AddressObject$`quarter`
+      self$`hamlet` <- AddressObject$`hamlet`
+      self$`suburb` <- AddressObject$`suburb`
+      self$`island` <- AddressObject$`island`
       self$`village` <- AddressObject$`village`
+      self$`town` <- AddressObject$`town`
+      self$`city` <- AddressObject$`city`
+      self$`city_district` <- AddressObject$`city_district`
       self$`county` <- AddressObject$`county`
       self$`state` <- AddressObject$`state`
+      self$`state_district` <- AddressObject$`state_district`
       self$`postcode` <- AddressObject$`postcode`
       self$`country` <- AddressObject$`country`
       self$`country_code` <- AddressObject$`country_code`
-      self$`city` <- AddressObject$`city`
+      self$`state_code` <- AddressObject$`state_code`
     }
   )
 )

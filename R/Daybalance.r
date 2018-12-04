@@ -10,6 +10,7 @@
 #' Daybalance Class
 #'
 #' @field day 
+#' @field bonus 
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -18,16 +19,24 @@ Daybalance <- R6::R6Class(
   'Daybalance',
   public = list(
     `day` = NULL,
-    initialize = function(`day`){
+    `bonus` = NULL,
+    initialize = function(`day`, `bonus`){
       if (!missing(`day`)) {
         stopifnot(is.numeric(`day`), length(`day`) == 1)
         self$`day` <- `day`
+      }
+      if (!missing(`bonus`)) {
+        stopifnot(is.numeric(`bonus`), length(`bonus`) == 1)
+        self$`bonus` <- `bonus`
       }
     },
     toJSON = function() {
       DaybalanceObject <- list()
       if (!is.null(self$`day`)) {
         DaybalanceObject[['day']] <- self$`day`
+      }
+      if (!is.null(self$`bonus`)) {
+        DaybalanceObject[['bonus']] <- self$`bonus`
       }
 
       DaybalanceObject
@@ -37,18 +46,24 @@ Daybalance <- R6::R6Class(
       if (!is.null(DaybalanceObject$`day`)) {
         self$`day` <- DaybalanceObject$`day`
       }
+      if (!is.null(DaybalanceObject$`bonus`)) {
+        self$`bonus` <- DaybalanceObject$`bonus`
+      }
     },
     toJSONString = function() {
        sprintf(
         '{
-           "day": %d
+           "day": %d,
+           "bonus": %d
         }',
-        self$`day`
+        self$`day`,
+        self$`bonus`
       )
     },
     fromJSONString = function(DaybalanceJson) {
       DaybalanceObject <- jsonlite::fromJSON(DaybalanceJson)
       self$`day` <- DaybalanceObject$`day`
+      self$`bonus` <- DaybalanceObject$`bonus`
     }
   )
 )

@@ -36,7 +36,7 @@ SearchApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    search = function(q, format, normalizecity, addressdetails, viewbox, bounded, limit, accept_language, countrycodes, namedetails, dedupe, extratags, ...){
+    search = function(q, format, normalizecity, addressdetails, viewbox, bounded, limit, accept_language, countrycodes, namedetails, dedupe, extratags, statecode, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
@@ -87,6 +87,10 @@ SearchApi <- R6::R6Class(
 
       if (!missing(`extratags`)) {
         queryParams['extratags'] <- extratags
+      }
+
+      if (!missing(`statecode`)) {
+        queryParams['statecode'] <- statecode
       }
 
       urlPath <- "/search.php"

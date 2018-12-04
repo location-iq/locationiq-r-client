@@ -36,7 +36,7 @@ ReverseApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    reverse = function(lat, lon, format, normalizecity, addressdetails, accept_language, namedetails, extratags, ...){
+    reverse = function(lat, lon, format, normalizecity, addressdetails, accept_language, namedetails, extratags, statecode, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- character()
@@ -71,6 +71,10 @@ ReverseApi <- R6::R6Class(
 
       if (!missing(`extratags`)) {
         queryParams['extratags'] <- extratags
+      }
+
+      if (!missing(`statecode`)) {
+        queryParams['statecode'] <- statecode
       }
 
       urlPath <- "/reverse.php"

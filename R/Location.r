@@ -42,57 +42,57 @@ Location <- R6::R6Class(
     `importance` = NULL,
     `address` = NULL,
     `namedetails` = NULL,
-    initialize = function(`place_id`, `licence`, `osm_type`, `osm_id`, `boundingbox`, `lat`, `lon`, `display_name`, `class`, `type`, `importance`, `address`, `namedetails`){
-      if (!missing(`place_id`)) {
+    initialize = function(`place_id`=NULL, `licence`=NULL, `osm_type`=NULL, `osm_id`=NULL, `boundingbox`=NULL, `lat`=NULL, `lon`=NULL, `display_name`=NULL, `class`=NULL, `type`=NULL, `importance`=NULL, `address`=NULL, `namedetails`=NULL, ...){
+      local.optional.var <- list(...)
+      if (!is.null(`place_id`)) {
         stopifnot(is.character(`place_id`), length(`place_id`) == 1)
         self$`place_id` <- `place_id`
       }
-      if (!missing(`licence`)) {
+      if (!is.null(`licence`)) {
         stopifnot(is.character(`licence`), length(`licence`) == 1)
         self$`licence` <- `licence`
       }
-      if (!missing(`osm_type`)) {
+      if (!is.null(`osm_type`)) {
         stopifnot(is.character(`osm_type`), length(`osm_type`) == 1)
         self$`osm_type` <- `osm_type`
       }
-      if (!missing(`osm_id`)) {
+      if (!is.null(`osm_id`)) {
         stopifnot(is.character(`osm_id`), length(`osm_id`) == 1)
         self$`osm_id` <- `osm_id`
       }
-      if (!missing(`boundingbox`)) {
-        stopifnot(is.list(`boundingbox`), length(`boundingbox`) != 0)
-        lapply(`boundingbox`, function(x) stopifnot(is.character(x)))
+      if (!is.null(`boundingbox`)) {
+        stopifnot(is.vector(`boundingbox`), length(`boundingbox`) != 0)
+        sapply(`boundingbox`, function(x) stopifnot(is.character(x)))
         self$`boundingbox` <- `boundingbox`
       }
-      if (!missing(`lat`)) {
+      if (!is.null(`lat`)) {
         stopifnot(is.character(`lat`), length(`lat`) == 1)
         self$`lat` <- `lat`
       }
-      if (!missing(`lon`)) {
+      if (!is.null(`lon`)) {
         stopifnot(is.character(`lon`), length(`lon`) == 1)
         self$`lon` <- `lon`
       }
-      if (!missing(`display_name`)) {
+      if (!is.null(`display_name`)) {
         stopifnot(is.character(`display_name`), length(`display_name`) == 1)
         self$`display_name` <- `display_name`
       }
-      if (!missing(`class`)) {
+      if (!is.null(`class`)) {
         stopifnot(is.character(`class`), length(`class`) == 1)
         self$`class` <- `class`
       }
-      if (!missing(`type`)) {
+      if (!is.null(`type`)) {
         stopifnot(is.character(`type`), length(`type`) == 1)
         self$`type` <- `type`
       }
-      if (!missing(`importance`)) {
-        stopifnot(is.numeric(`importance`), length(`importance`) == 1)
+      if (!is.null(`importance`)) {
         self$`importance` <- `importance`
       }
-      if (!missing(`address`)) {
+      if (!is.null(`address`)) {
         stopifnot(R6::is.R6(`address`))
         self$`address` <- `address`
       }
-      if (!missing(`namedetails`)) {
+      if (!is.null(`namedetails`)) {
         stopifnot(R6::is.R6(`namedetails`))
         self$`namedetails` <- `namedetails`
       }
@@ -100,43 +100,56 @@ Location <- R6::R6Class(
     toJSON = function() {
       LocationObject <- list()
       if (!is.null(self$`place_id`)) {
-        LocationObject[['place_id']] <- self$`place_id`
+        LocationObject[['place_id']] <-
+          self$`place_id`
       }
       if (!is.null(self$`licence`)) {
-        LocationObject[['licence']] <- self$`licence`
+        LocationObject[['licence']] <-
+          self$`licence`
       }
       if (!is.null(self$`osm_type`)) {
-        LocationObject[['osm_type']] <- self$`osm_type`
+        LocationObject[['osm_type']] <-
+          self$`osm_type`
       }
       if (!is.null(self$`osm_id`)) {
-        LocationObject[['osm_id']] <- self$`osm_id`
+        LocationObject[['osm_id']] <-
+          self$`osm_id`
       }
       if (!is.null(self$`boundingbox`)) {
-        LocationObject[['boundingbox']] <- self$`boundingbox`
+        LocationObject[['boundingbox']] <-
+          self$`boundingbox`
       }
       if (!is.null(self$`lat`)) {
-        LocationObject[['lat']] <- self$`lat`
+        LocationObject[['lat']] <-
+          self$`lat`
       }
       if (!is.null(self$`lon`)) {
-        LocationObject[['lon']] <- self$`lon`
+        LocationObject[['lon']] <-
+          self$`lon`
       }
       if (!is.null(self$`display_name`)) {
-        LocationObject[['display_name']] <- self$`display_name`
+        LocationObject[['display_name']] <-
+          self$`display_name`
       }
       if (!is.null(self$`class`)) {
-        LocationObject[['class']] <- self$`class`
+        LocationObject[['class']] <-
+          self$`class`
       }
       if (!is.null(self$`type`)) {
-        LocationObject[['type']] <- self$`type`
+        LocationObject[['type']] <-
+          self$`type`
       }
       if (!is.null(self$`importance`)) {
-        LocationObject[['importance']] <- self$`importance`
+        LocationObject[['importance']] <-
+          self$`importance`
       }
       if (!is.null(self$`address`)) {
-        LocationObject[['address']] <- self$`address`$toJSON()
+        LocationObject[['address']] <-
+          self$`address`$toJSON()
       }
       if (!is.null(self$`namedetails`)) {
-        LocationObject[['namedetails']] <- self$`namedetails`$toJSON()
+        LocationObject[['namedetails']] <-
+          self$`namedetails`$toJSON()
       }
 
       LocationObject
@@ -188,35 +201,48 @@ Location <- R6::R6Class(
       }
     },
     toJSONString = function() {
-       sprintf(
+      sprintf(
         '{
-           "place_id": %s,
-           "licence": %s,
-           "osm_type": %s,
-           "osm_id": %s,
-           "boundingbox": [%s],
-           "lat": %s,
-           "lon": %s,
-           "display_name": %s,
-           "class": %s,
-           "type": %s,
-           "importance": %d,
-           "address": %s,
-           "namedetails": %s
+           "place_id":
+             "%s",
+           "licence":
+             "%s",
+           "osm_type":
+             "%s",
+           "osm_id":
+             "%s",
+           "boundingbox":
+             [%s],
+           "lat":
+             "%s",
+           "lon":
+             "%s",
+           "display_name":
+             "%s",
+           "class":
+             "%s",
+           "type":
+             "%s",
+           "importance":
+             %d,
+           "address":
+             %s,
+           "namedetails":
+             %s
         }',
         self$`place_id`,
         self$`licence`,
         self$`osm_type`,
         self$`osm_id`,
-        lapply(self$`boundingbox`, function(x) paste(paste0('"', x, '"'), sep=",")),
+        paste(unlist(lapply(self$`boundingbox`, function(x) paste0('"', x, '"'))), collapse=","),
         self$`lat`,
         self$`lon`,
         self$`display_name`,
         self$`class`,
         self$`type`,
         self$`importance`,
-        self$`address`$toJSON(),
-        self$`namedetails`$toJSON()
+        jsonlite::toJSON(self$`address`$toJSON(), auto_unbox=TRUE),
+        jsonlite::toJSON(self$`namedetails`$toJSON(), auto_unbox=TRUE)
       )
     },
     fromJSONString = function(LocationJson) {
@@ -225,17 +251,16 @@ Location <- R6::R6Class(
       self$`licence` <- LocationObject$`licence`
       self$`osm_type` <- LocationObject$`osm_type`
       self$`osm_id` <- LocationObject$`osm_id`
-      self$`boundingbox` <- LocationObject$`boundingbox`
+      self$`boundingbox` <- lapply(LocationObject$`boundingbox`, function (x) x)
       self$`lat` <- LocationObject$`lat`
       self$`lon` <- LocationObject$`lon`
       self$`display_name` <- LocationObject$`display_name`
       self$`class` <- LocationObject$`class`
       self$`type` <- LocationObject$`type`
       self$`importance` <- LocationObject$`importance`
-      AddressObject <- Address$new()
-      self$`address` <- AddressObject$fromJSON(jsonlite::toJSON(LocationObject$address, auto_unbox = TRUE))
-      NamedetailsObject <- Namedetails$new()
-      self$`namedetails` <- NamedetailsObject$fromJSON(jsonlite::toJSON(LocationObject$namedetails, auto_unbox = TRUE))
+      self$`address` <- Address$new()$fromJSON(jsonlite::toJSON(LocationObject$address, auto_unbox = TRUE))
+      self$`namedetails` <- Namedetails$new()$fromJSON(jsonlite::toJSON(LocationObject$namedetails, auto_unbox = TRUE))
+      self
     }
   )
 )

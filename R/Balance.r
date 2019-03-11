@@ -20,12 +20,13 @@ Balance <- R6::R6Class(
   public = list(
     `status` = NULL,
     `balance` = NULL,
-    initialize = function(`status`, `balance`){
-      if (!missing(`status`)) {
+    initialize = function(`status`=NULL, `balance`=NULL, ...){
+      local.optional.var <- list(...)
+      if (!is.null(`status`)) {
         stopifnot(is.character(`status`), length(`status`) == 1)
         self$`status` <- `status`
       }
-      if (!missing(`balance`)) {
+      if (!is.null(`balance`)) {
         stopifnot(R6::is.R6(`balance`))
         self$`balance` <- `balance`
       }
@@ -33,10 +34,12 @@ Balance <- R6::R6Class(
     toJSON = function() {
       BalanceObject <- list()
       if (!is.null(self$`status`)) {
-        BalanceObject[['status']] <- self$`status`
+        BalanceObject[['status']] <-
+          self$`status`
       }
       if (!is.null(self$`balance`)) {
-        BalanceObject[['balance']] <- self$`balance`$toJSON()
+        BalanceObject[['balance']] <-
+          self$`balance`$toJSON()
       }
 
       BalanceObject
@@ -53,20 +56,22 @@ Balance <- R6::R6Class(
       }
     },
     toJSONString = function() {
-       sprintf(
+      sprintf(
         '{
-           "status": %s,
-           "balance": %s
+           "status":
+             "%s",
+           "balance":
+             %s
         }',
         self$`status`,
-        self$`balance`$toJSON()
+        jsonlite::toJSON(self$`balance`$toJSON(), auto_unbox=TRUE)
       )
     },
     fromJSONString = function(BalanceJson) {
       BalanceObject <- jsonlite::fromJSON(BalanceJson)
       self$`status` <- BalanceObject$`status`
-      DaybalanceObject <- Daybalance$new()
-      self$`balance` <- DaybalanceObject$fromJSON(jsonlite::toJSON(BalanceObject$balance, auto_unbox = TRUE))
+      self$`balance` <- Daybalance$new()$fromJSON(jsonlite::toJSON(BalanceObject$balance, auto_unbox = TRUE))
+      self
     }
   )
 )

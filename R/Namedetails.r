@@ -18,8 +18,9 @@ Namedetails <- R6::R6Class(
   'Namedetails',
   public = list(
     `name` = NULL,
-    initialize = function(`name`){
-      if (!missing(`name`)) {
+    initialize = function(`name`=NULL, ...){
+      local.optional.var <- list(...)
+      if (!is.null(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
         self$`name` <- `name`
       }
@@ -27,7 +28,8 @@ Namedetails <- R6::R6Class(
     toJSON = function() {
       NamedetailsObject <- list()
       if (!is.null(self$`name`)) {
-        NamedetailsObject[['name']] <- self$`name`
+        NamedetailsObject[['name']] <-
+          self$`name`
       }
 
       NamedetailsObject
@@ -39,9 +41,10 @@ Namedetails <- R6::R6Class(
       }
     },
     toJSONString = function() {
-       sprintf(
+      sprintf(
         '{
-           "name": %s
+           "name":
+             "%s"
         }',
         self$`name`
       )
@@ -49,6 +52,7 @@ Namedetails <- R6::R6Class(
     fromJSONString = function(NamedetailsJson) {
       NamedetailsObject <- jsonlite::fromJSON(NamedetailsJson)
       self$`name` <- NamedetailsObject$`name`
+      self
     }
   )
 )

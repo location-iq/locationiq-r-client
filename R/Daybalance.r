@@ -20,12 +20,13 @@ Daybalance <- R6::R6Class(
   public = list(
     `day` = NULL,
     `bonus` = NULL,
-    initialize = function(`day`, `bonus`){
-      if (!missing(`day`)) {
+    initialize = function(`day`=NULL, `bonus`=NULL, ...){
+      local.optional.var <- list(...)
+      if (!is.null(`day`)) {
         stopifnot(is.numeric(`day`), length(`day`) == 1)
         self$`day` <- `day`
       }
-      if (!missing(`bonus`)) {
+      if (!is.null(`bonus`)) {
         stopifnot(is.numeric(`bonus`), length(`bonus`) == 1)
         self$`bonus` <- `bonus`
       }
@@ -33,10 +34,12 @@ Daybalance <- R6::R6Class(
     toJSON = function() {
       DaybalanceObject <- list()
       if (!is.null(self$`day`)) {
-        DaybalanceObject[['day']] <- self$`day`
+        DaybalanceObject[['day']] <-
+          self$`day`
       }
       if (!is.null(self$`bonus`)) {
-        DaybalanceObject[['bonus']] <- self$`bonus`
+        DaybalanceObject[['bonus']] <-
+          self$`bonus`
       }
 
       DaybalanceObject
@@ -51,10 +54,12 @@ Daybalance <- R6::R6Class(
       }
     },
     toJSONString = function() {
-       sprintf(
+      sprintf(
         '{
-           "day": %d,
-           "bonus": %d
+           "day":
+             %d,
+           "bonus":
+             %d
         }',
         self$`day`,
         self$`bonus`
@@ -64,6 +69,7 @@ Daybalance <- R6::R6Class(
       DaybalanceObject <- jsonlite::fromJSON(DaybalanceJson)
       self$`day` <- DaybalanceObject$`day`
       self$`bonus` <- DaybalanceObject$`bonus`
+      self
     }
   )
 )

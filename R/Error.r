@@ -18,8 +18,9 @@ Error <- R6::R6Class(
   'Error',
   public = list(
     `error` = NULL,
-    initialize = function(`error`){
-      if (!missing(`error`)) {
+    initialize = function(`error`=NULL, ...){
+      local.optional.var <- list(...)
+      if (!is.null(`error`)) {
         stopifnot(is.character(`error`), length(`error`) == 1)
         self$`error` <- `error`
       }
@@ -27,7 +28,8 @@ Error <- R6::R6Class(
     toJSON = function() {
       ErrorObject <- list()
       if (!is.null(self$`error`)) {
-        ErrorObject[['error']] <- self$`error`
+        ErrorObject[['error']] <-
+          self$`error`
       }
 
       ErrorObject
@@ -39,9 +41,10 @@ Error <- R6::R6Class(
       }
     },
     toJSONString = function() {
-       sprintf(
+      sprintf(
         '{
-           "error": %s
+           "error":
+             "%s"
         }',
         self$`error`
       )
@@ -49,6 +52,7 @@ Error <- R6::R6Class(
     fromJSONString = function(ErrorJson) {
       ErrorObject <- jsonlite::fromJSON(ErrorJson)
       self$`error` <- ErrorObject$`error`
+      self
     }
   )
 )

@@ -1,4 +1,4 @@
-# locationiq::Address
+# openapi::Address
 
 ## Properties
 Name | Type | Description | Notes

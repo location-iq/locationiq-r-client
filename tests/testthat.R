@@ -1,4 +1,4 @@
 library(testthat)
-library(locationiq)
+library(openapi)
 
-test_check("locationiq")
+test_check("openapi")

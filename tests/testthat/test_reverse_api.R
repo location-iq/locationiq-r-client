@@ -19,6 +19,8 @@ test_that("Reverse", {
   # @param integer  namedetails  Include a list of alternative names in the results. These may include language variants, references, operator and brand.  (optional)
   # @param integer  extratags  Include additional information in the result if available, e.g. wikipedia link, opening hours.  (optional)
   # @param integer  statecode  Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0  (optional)
+  # @param integer  showdistance  Returns the straight line distance (meters) between the input location and the result's location. Value is set in the distance key of the response. Defaults to 0 [0,1]  (optional)
+  # @param integer  postaladdress  Returns address inside the postaladdress key, that is specifically formatted for each country. Currently supported for addresses in Germany. Defaults to 0 [0,1]  (optional)
   # @return [Location]
 
   # uncomment below to test the operation

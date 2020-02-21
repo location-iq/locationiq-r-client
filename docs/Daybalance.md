@@ -1,4 +1,4 @@
-# locationiq::Daybalance
+# openapi::Daybalance
 
 ## Properties
 Name | Type | Description | Notes

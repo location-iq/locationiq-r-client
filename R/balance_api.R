@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Balance operations
-#' @description openapi.Balance
+#' @description locationiq.Balance
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -79,7 +79,7 @@
 #' \donttest{
 #' ####################  Balance  ####################
 #'
-#' library(openapi)
+#' library(locationiq)
 #'
 #' api.instance <- BalanceApi$new()
 #'
@@ -139,7 +139,7 @@ BalanceApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "Balance", loadNamespace("openapi")),
+          self$apiClient$deserialize(resp, "Balance", loadNamespace("locationiq")),
           error = function(e){
              stop("Failed to deserialize response")
           }

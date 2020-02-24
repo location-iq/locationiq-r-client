@@ -73,13 +73,13 @@ DirectionsNearestWaypoints <- R6::R6Class(
     fromJSON = function(DirectionsNearestWaypointsJson) {
       DirectionsNearestWaypointsObject <- jsonlite::fromJSON(DirectionsNearestWaypointsJson)
       if (!is.null(DirectionsNearestWaypointsObject$`nodes`)) {
-        self$`nodes` <- ApiClient$new()$deserializeObj(DirectionsNearestWaypointsObject$`nodes`, "array[numeric]", loadNamespace("openapi"))
+        self$`nodes` <- ApiClient$new()$deserializeObj(DirectionsNearestWaypointsObject$`nodes`, "array[numeric]", loadNamespace("locationiq"))
       }
       if (!is.null(DirectionsNearestWaypointsObject$`distance`)) {
         self$`distance` <- DirectionsNearestWaypointsObject$`distance`
       }
       if (!is.null(DirectionsNearestWaypointsObject$`location`)) {
-        self$`location` <- ApiClient$new()$deserializeObj(DirectionsNearestWaypointsObject$`location`, "array[numeric]", loadNamespace("openapi"))
+        self$`location` <- ApiClient$new()$deserializeObj(DirectionsNearestWaypointsObject$`location`, "array[numeric]", loadNamespace("locationiq"))
       }
       if (!is.null(DirectionsNearestWaypointsObject$`name`)) {
         self$`name` <- DirectionsNearestWaypointsObject$`name`
@@ -121,9 +121,9 @@ DirectionsNearestWaypoints <- R6::R6Class(
     },
     fromJSONString = function(DirectionsNearestWaypointsJson) {
       DirectionsNearestWaypointsObject <- jsonlite::fromJSON(DirectionsNearestWaypointsJson)
-      self$`nodes` <- ApiClient$new()$deserializeObj(DirectionsNearestWaypointsObject$`nodes`, "array[numeric]", loadNamespace("openapi"))
+      self$`nodes` <- ApiClient$new()$deserializeObj(DirectionsNearestWaypointsObject$`nodes`, "array[numeric]", loadNamespace("locationiq"))
       self$`distance` <- DirectionsNearestWaypointsObject$`distance`
-      self$`location` <- ApiClient$new()$deserializeObj(DirectionsNearestWaypointsObject$`location`, "array[numeric]", loadNamespace("openapi"))
+      self$`location` <- ApiClient$new()$deserializeObj(DirectionsNearestWaypointsObject$`location`, "array[numeric]", loadNamespace("locationiq"))
       self$`name` <- DirectionsNearestWaypointsObject$`name`
       self
     }

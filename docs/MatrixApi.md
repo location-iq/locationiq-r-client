@@ -16,7 +16,7 @@ Computes duration of the fastest route between all pairs of supplied coordinates
 
 ### Example
 ```R
-library(openapi)
+library(locationiq)
 
 var.coordinates <- '\"-0.16102,51.523854;-0.15797,51.52326;-0.161593,51.522550\"' # character | String of format {longitude},{latitude};{longitude},{latitude}[;{longitude},{latitude} ...] or polyline({polyline}) or polyline6({polyline6}). polyline follows Google's polyline format with precision 5
 var.bearings <- '\"10,20;40,30;30,9\"' # character | Limits the search to segments with given bearing in degrees towards true north in clockwise direction. List of positive integer pairs separated by semi-colon and bearings array should be equal to length of coordinate array. Input Value :- {bearing};{bearing}[;{bearing} ...] Bearing follows the following format : bearing {value},{range} integer 0 .. 360,integer 0 .. 180

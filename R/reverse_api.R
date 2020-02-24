@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Reverse operations
-#' @description openapi.Reverse
+#' @description locationiq.Reverse
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -90,7 +90,7 @@
 #' \donttest{
 #' ####################  Reverse  ####################
 #'
-#' library(openapi)
+#' library(locationiq)
 #' var.lat <- 40.7487727 # numeric | Latitude of the location to generate an address for.
 #' var.lon <- -73.9849336 # numeric | Longitude of the location to generate an address for.
 #' var.format <- '\"json\"' # character | Format to geocode. Only JSON supported for SDKs
@@ -200,7 +200,7 @@ ReverseApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "Location", loadNamespace("openapi")),
+          self$apiClient$deserialize(resp, "Location", loadNamespace("locationiq")),
           error = function(e){
              stop("Failed to deserialize response")
           }

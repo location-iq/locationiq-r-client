@@ -1,4 +1,4 @@
-# R API client for openapi
+# R API client for locationiq
 
 LocationIQ provides flexible enterprise-grade location based solutions. We work with developers, startups and enterprises worldwide serving billions of requests everyday. This page provides an overview of the technical aspects of our API and will help you get started.
 
@@ -27,14 +27,14 @@ install.packages("caTools")
 git clone https://github.com/location-iq/locationiq-r-client
 cd locationiq-r-client
 R CMD build .
-R CMD check openapi_1.0.0.tar.gz
-R CMD INSTALL openapi_1.0.0.tar.gz
+R CMD check locationiq_1.0.0.tar.gz
+R CMD INSTALL locationiq_1.0.0.tar.gz
 ```
 
 ### Install the package
 
 ```R
-install.packages("openapi")
+install.packages("locationiq")
 ```
 
 To install directly from Github, use `devtools`:
@@ -47,7 +47,7 @@ install_github("location-iq/locationiq-r-client")
 ### Usage
 
 ```R
-library(openapi)
+library(locationiq)
 ```
 
 ## Documentation for API Endpoints

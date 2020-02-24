@@ -16,7 +16,7 @@ The Search API allows converting addresses, such as a street address, into geogr
 
 ### Example
 ```R
-library(openapi)
+library(locationiq)
 
 var.q <- '\"Empire state building\"' # character | Address to geocode
 var.format <- '\"json\"' # character | Format to geocode. Only JSON supported for SDKs

@@ -16,7 +16,7 @@ Matching API matches or snaps given GPS points to the road network in the most p
 
 ### Example
 ```R
-library(openapi)
+library(locationiq)
 
 var.coordinates <- '\"-0.16102,51.523854;-0.15797,51.52326;-0.161593,51.522550\"' # character | String of format {longitude},{latitude};{longitude},{latitude}[;{longitude},{latitude} ...] or polyline({polyline}) or polyline6({polyline6}). polyline follows Google's polyline format with precision 5
 var.generate.hints <- '\"false\"' # character | Adds a Hint to the response which can be used in subsequent requests, see hints parameter. Input Value - true (default), false Format - Base64 String

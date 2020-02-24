@@ -64,7 +64,7 @@ DirectionsMatrixSources <- R6::R6Class(
         self$`distance` <- DirectionsMatrixSourcesObject$`distance`
       }
       if (!is.null(DirectionsMatrixSourcesObject$`location`)) {
-        self$`location` <- ApiClient$new()$deserializeObj(DirectionsMatrixSourcesObject$`location`, "array[numeric]", loadNamespace("openapi"))
+        self$`location` <- ApiClient$new()$deserializeObj(DirectionsMatrixSourcesObject$`location`, "array[numeric]", loadNamespace("locationiq"))
       }
       if (!is.null(DirectionsMatrixSourcesObject$`name`)) {
         self$`name` <- DirectionsMatrixSourcesObject$`name`
@@ -100,7 +100,7 @@ DirectionsMatrixSources <- R6::R6Class(
     fromJSONString = function(DirectionsMatrixSourcesJson) {
       DirectionsMatrixSourcesObject <- jsonlite::fromJSON(DirectionsMatrixSourcesJson)
       self$`distance` <- DirectionsMatrixSourcesObject$`distance`
-      self$`location` <- ApiClient$new()$deserializeObj(DirectionsMatrixSourcesObject$`location`, "array[numeric]", loadNamespace("openapi"))
+      self$`location` <- ApiClient$new()$deserializeObj(DirectionsMatrixSourcesObject$`location`, "array[numeric]", loadNamespace("locationiq"))
       self$`name` <- DirectionsMatrixSourcesObject$`name`
       self
     }

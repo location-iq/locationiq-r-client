@@ -1,4 +1,4 @@
-# openapi::Namedetails
+# locationiq::Namedetails
 
 ## Properties
 Name | Type | Description | Notes

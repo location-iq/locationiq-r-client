@@ -16,7 +16,7 @@ The Balance API provides a count of request credits left in the user's account f
 
 ### Example
 ```R
-library(openapi)
+library(locationiq)
 
 
 api.instance <- BalanceApi$new()

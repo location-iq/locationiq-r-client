@@ -1,4 +1,4 @@
-# openapi::Error
+# locationiq::Error
 
 ## Properties
 Name | Type | Description | Notes

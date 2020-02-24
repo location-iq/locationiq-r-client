@@ -92,7 +92,7 @@ DirectionsDirectionsRoutes <- R6::R6Class(
     fromJSON = function(DirectionsDirectionsRoutesJson) {
       DirectionsDirectionsRoutesObject <- jsonlite::fromJSON(DirectionsDirectionsRoutesJson)
       if (!is.null(DirectionsDirectionsRoutesObject$`legs`)) {
-        self$`legs` <- ApiClient$new()$deserializeObj(DirectionsDirectionsRoutesObject$`legs`, "array[object]", loadNamespace("openapi"))
+        self$`legs` <- ApiClient$new()$deserializeObj(DirectionsDirectionsRoutesObject$`legs`, "array[object]", loadNamespace("locationiq"))
       }
       if (!is.null(DirectionsDirectionsRoutesObject$`weight_name`)) {
         self$`weight_name` <- DirectionsDirectionsRoutesObject$`weight_name`
@@ -160,7 +160,7 @@ DirectionsDirectionsRoutes <- R6::R6Class(
     },
     fromJSONString = function(DirectionsDirectionsRoutesJson) {
       DirectionsDirectionsRoutesObject <- jsonlite::fromJSON(DirectionsDirectionsRoutesJson)
-      self$`legs` <- ApiClient$new()$deserializeObj(DirectionsDirectionsRoutesObject$`legs`, "array[object]", loadNamespace("openapi"))
+      self$`legs` <- ApiClient$new()$deserializeObj(DirectionsDirectionsRoutesObject$`legs`, "array[object]", loadNamespace("locationiq"))
       self$`weight_name` <- DirectionsDirectionsRoutesObject$`weight_name`
       self$`geometry` <- DirectionsDirectionsRoutesObject$`geometry`
       self$`weight` <- DirectionsDirectionsRoutesObject$`weight`

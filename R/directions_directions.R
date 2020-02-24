@@ -66,10 +66,10 @@ DirectionsDirections <- R6::R6Class(
         self$`code` <- DirectionsDirectionsObject$`code`
       }
       if (!is.null(DirectionsDirectionsObject$`waypoints`)) {
-        self$`waypoints` <- ApiClient$new()$deserializeObj(DirectionsDirectionsObject$`waypoints`, "array[object]", loadNamespace("openapi"))
+        self$`waypoints` <- ApiClient$new()$deserializeObj(DirectionsDirectionsObject$`waypoints`, "array[object]", loadNamespace("locationiq"))
       }
       if (!is.null(DirectionsDirectionsObject$`routes`)) {
-        self$`routes` <- ApiClient$new()$deserializeObj(DirectionsDirectionsObject$`routes`, "array[DirectionsDirectionsRoutes]", loadNamespace("openapi"))
+        self$`routes` <- ApiClient$new()$deserializeObj(DirectionsDirectionsObject$`routes`, "array[DirectionsDirectionsRoutes]", loadNamespace("locationiq"))
       }
     },
     toJSONString = function() {
@@ -102,8 +102,8 @@ DirectionsDirections <- R6::R6Class(
     fromJSONString = function(DirectionsDirectionsJson) {
       DirectionsDirectionsObject <- jsonlite::fromJSON(DirectionsDirectionsJson)
       self$`code` <- DirectionsDirectionsObject$`code`
-      self$`waypoints` <- ApiClient$new()$deserializeObj(DirectionsDirectionsObject$`waypoints`, "array[object]", loadNamespace("openapi"))
-      self$`routes` <- ApiClient$new()$deserializeObj(DirectionsDirectionsObject$`routes`, "array[DirectionsDirectionsRoutes]", loadNamespace("openapi"))
+      self$`waypoints` <- ApiClient$new()$deserializeObj(DirectionsDirectionsObject$`waypoints`, "array[object]", loadNamespace("locationiq"))
+      self$`routes` <- ApiClient$new()$deserializeObj(DirectionsDirectionsObject$`routes`, "array[DirectionsDirectionsRoutes]", loadNamespace("locationiq"))
       self
     }
   )

@@ -1,4 +1,4 @@
-# openapi::DirectionsDirections
+# locationiq::DirectionsDirections
 
 ## Properties
 Name | Type | Description | Notes

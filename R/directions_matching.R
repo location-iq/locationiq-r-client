@@ -66,10 +66,10 @@ DirectionsMatching <- R6::R6Class(
         self$`code` <- DirectionsMatchingObject$`code`
       }
       if (!is.null(DirectionsMatchingObject$`tracepoints`)) {
-        self$`tracepoints` <- ApiClient$new()$deserializeObj(DirectionsMatchingObject$`tracepoints`, "array[object]", loadNamespace("openapi"))
+        self$`tracepoints` <- ApiClient$new()$deserializeObj(DirectionsMatchingObject$`tracepoints`, "array[object]", loadNamespace("locationiq"))
       }
       if (!is.null(DirectionsMatchingObject$`matchings`)) {
-        self$`matchings` <- ApiClient$new()$deserializeObj(DirectionsMatchingObject$`matchings`, "array[object]", loadNamespace("openapi"))
+        self$`matchings` <- ApiClient$new()$deserializeObj(DirectionsMatchingObject$`matchings`, "array[object]", loadNamespace("locationiq"))
       }
     },
     toJSONString = function() {
@@ -102,8 +102,8 @@ DirectionsMatching <- R6::R6Class(
     fromJSONString = function(DirectionsMatchingJson) {
       DirectionsMatchingObject <- jsonlite::fromJSON(DirectionsMatchingJson)
       self$`code` <- DirectionsMatchingObject$`code`
-      self$`tracepoints` <- ApiClient$new()$deserializeObj(DirectionsMatchingObject$`tracepoints`, "array[object]", loadNamespace("openapi"))
-      self$`matchings` <- ApiClient$new()$deserializeObj(DirectionsMatchingObject$`matchings`, "array[object]", loadNamespace("openapi"))
+      self$`tracepoints` <- ApiClient$new()$deserializeObj(DirectionsMatchingObject$`tracepoints`, "array[object]", loadNamespace("locationiq"))
+      self$`matchings` <- ApiClient$new()$deserializeObj(DirectionsMatchingObject$`matchings`, "array[object]", loadNamespace("locationiq"))
       self
     }
   )

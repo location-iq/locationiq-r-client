@@ -1,4 +1,4 @@
-# openapi::DirectionsNearestWaypoints
+# locationiq::DirectionsNearestWaypoints
 
 ## Properties
 Name | Type | Description | Notes

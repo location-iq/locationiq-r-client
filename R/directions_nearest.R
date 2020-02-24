@@ -54,7 +54,7 @@ DirectionsNearest <- R6::R6Class(
         self$`code` <- DirectionsNearestObject$`code`
       }
       if (!is.null(DirectionsNearestObject$`waypoints`)) {
-        self$`waypoints` <- ApiClient$new()$deserializeObj(DirectionsNearestObject$`waypoints`, "array[DirectionsNearestWaypoints]", loadNamespace("openapi"))
+        self$`waypoints` <- ApiClient$new()$deserializeObj(DirectionsNearestObject$`waypoints`, "array[DirectionsNearestWaypoints]", loadNamespace("locationiq"))
       }
     },
     toJSONString = function() {
@@ -80,7 +80,7 @@ DirectionsNearest <- R6::R6Class(
     fromJSONString = function(DirectionsNearestJson) {
       DirectionsNearestObject <- jsonlite::fromJSON(DirectionsNearestJson)
       self$`code` <- DirectionsNearestObject$`code`
-      self$`waypoints` <- ApiClient$new()$deserializeObj(DirectionsNearestObject$`waypoints`, "array[DirectionsNearestWaypoints]", loadNamespace("openapi"))
+      self$`waypoints` <- ApiClient$new()$deserializeObj(DirectionsNearestObject$`waypoints`, "array[DirectionsNearestWaypoints]", loadNamespace("locationiq"))
       self
     }
   )

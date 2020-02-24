@@ -90,16 +90,16 @@ DirectionsMatrix <- R6::R6Class(
         self$`code` <- DirectionsMatrixObject$`code`
       }
       if (!is.null(DirectionsMatrixObject$`distances`)) {
-        self$`distances` <- ApiClient$new()$deserializeObj(DirectionsMatrixObject$`distances`, "array[numeric]", loadNamespace("openapi"))
+        self$`distances` <- ApiClient$new()$deserializeObj(DirectionsMatrixObject$`distances`, "array[numeric]", loadNamespace("locationiq"))
       }
       if (!is.null(DirectionsMatrixObject$`fallback_speed_cells`)) {
-        self$`fallback_speed_cells` <- ApiClient$new()$deserializeObj(DirectionsMatrixObject$`fallback_speed_cells`, "array[numeric]", loadNamespace("openapi"))
+        self$`fallback_speed_cells` <- ApiClient$new()$deserializeObj(DirectionsMatrixObject$`fallback_speed_cells`, "array[numeric]", loadNamespace("locationiq"))
       }
       if (!is.null(DirectionsMatrixObject$`sources`)) {
-        self$`sources` <- ApiClient$new()$deserializeObj(DirectionsMatrixObject$`sources`, "array[DirectionsMatrixSources]", loadNamespace("openapi"))
+        self$`sources` <- ApiClient$new()$deserializeObj(DirectionsMatrixObject$`sources`, "array[DirectionsMatrixSources]", loadNamespace("locationiq"))
       }
       if (!is.null(DirectionsMatrixObject$`destinations`)) {
-        self$`destinations` <- ApiClient$new()$deserializeObj(DirectionsMatrixObject$`destinations`, "array[DirectionsMatrixSources]", loadNamespace("openapi"))
+        self$`destinations` <- ApiClient$new()$deserializeObj(DirectionsMatrixObject$`destinations`, "array[DirectionsMatrixSources]", loadNamespace("locationiq"))
       }
     },
     toJSONString = function() {
@@ -146,10 +146,10 @@ DirectionsMatrix <- R6::R6Class(
     fromJSONString = function(DirectionsMatrixJson) {
       DirectionsMatrixObject <- jsonlite::fromJSON(DirectionsMatrixJson)
       self$`code` <- DirectionsMatrixObject$`code`
-      self$`distances` <- ApiClient$new()$deserializeObj(DirectionsMatrixObject$`distances`, "array[numeric]", loadNamespace("openapi"))
-      self$`fallback_speed_cells` <- ApiClient$new()$deserializeObj(DirectionsMatrixObject$`fallback_speed_cells`, "array[numeric]", loadNamespace("openapi"))
-      self$`sources` <- ApiClient$new()$deserializeObj(DirectionsMatrixObject$`sources`, "array[DirectionsMatrixSources]", loadNamespace("openapi"))
-      self$`destinations` <- ApiClient$new()$deserializeObj(DirectionsMatrixObject$`destinations`, "array[DirectionsMatrixSources]", loadNamespace("openapi"))
+      self$`distances` <- ApiClient$new()$deserializeObj(DirectionsMatrixObject$`distances`, "array[numeric]", loadNamespace("locationiq"))
+      self$`fallback_speed_cells` <- ApiClient$new()$deserializeObj(DirectionsMatrixObject$`fallback_speed_cells`, "array[numeric]", loadNamespace("locationiq"))
+      self$`sources` <- ApiClient$new()$deserializeObj(DirectionsMatrixObject$`sources`, "array[DirectionsMatrixSources]", loadNamespace("locationiq"))
+      self$`destinations` <- ApiClient$new()$deserializeObj(DirectionsMatrixObject$`destinations`, "array[DirectionsMatrixSources]", loadNamespace("locationiq"))
       self
     }
   )

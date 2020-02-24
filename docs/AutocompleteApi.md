@@ -16,7 +16,7 @@ The Autocomplete API is a variant of the Search API that returns place predictio
 
 ### Example
 ```R
-library(openapi)
+library(locationiq)
 
 var.q <- '\"Empire state\"' # character | Address to geocode
 var.normalizecity <- 1 # integer | For responses with no city value in the address section, the next available element in this order - city_district, locality, town, borough, municipality, village, hamlet, quarter, neighbourhood - from the address section will be normalized to city. Defaults to 1 for SDKs.

@@ -1,4 +1,4 @@
-# openapi::Balance
+# locationiq::Balance
 
 ## Properties
 Name | Type | Description | Notes

@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Nearest operations
-#' @description openapi.Nearest
+#' @description locationiq.Nearest
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -86,7 +86,7 @@
 #' \donttest{
 #' ####################  Nearest  ####################
 #'
-#' library(openapi)
+#' library(locationiq)
 #' var.coordinates <- '\"-0.16102,51.523854\"' # character | String of format {longitude},{latitude};{longitude},{latitude}[;{longitude},{latitude} ...] or polyline({polyline}) or polyline6({polyline6}). polyline follows Google's polyline format with precision 5
 #' var.generate.hints <- '\"false\"' # character | Adds a Hint to the response which can be used in subsequent requests, see hints parameter. Input Value - true (default), false Format - Base64 String
 #' var.exclude <- '\"toll\"' # character | Additive list of classes to avoid, order does not matter. input Value - {class}[,{class}] Format - A class name determined by the profile or none.
@@ -174,7 +174,7 @@ NearestApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "DirectionsNearest", loadNamespace("openapi")),
+          self$apiClient$deserialize(resp, "DirectionsNearest", loadNamespace("locationiq")),
           error = function(e){
              stop("Failed to deserialize response")
           }

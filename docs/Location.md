@@ -1,4 +1,4 @@
-# openapi::Location
+# locationiq::Location
 
 ## Properties
 Name | Type | Description | Notes

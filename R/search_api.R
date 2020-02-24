@@ -8,7 +8,7 @@
 
 #' @docType class
 #' @title Search operations
-#' @description openapi.Search
+#' @description locationiq.Search
 #' @format An \code{R6Class} generator object
 #' @field apiClient Handles the client-server communication.
 #'
@@ -94,7 +94,7 @@
 #' \donttest{
 #' ####################  Search  ####################
 #'
-#' library(openapi)
+#' library(locationiq)
 #' var.q <- '\"Empire state building\"' # character | Address to geocode
 #' var.format <- '\"json\"' # character | Format to geocode. Only JSON supported for SDKs
 #' var.normalizecity <- 1 # integer | For responses with no city value in the address section, the next available element in this order - city_district, locality, town, borough, municipality, village, hamlet, quarter, neighbourhood - from the address section will be normalized to city. Defaults to 1 for SDKs.
@@ -212,7 +212,7 @@ SearchApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[Location]", loadNamespace("openapi")),
+          self$apiClient$deserialize(resp, "array[Location]", loadNamespace("locationiq")),
           error = function(e){
              stop("Failed to deserialize response")
           }

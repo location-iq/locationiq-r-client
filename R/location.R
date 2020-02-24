@@ -207,7 +207,7 @@ Location <- R6::R6Class(
         self$`osm_id` <- LocationObject$`osm_id`
       }
       if (!is.null(LocationObject$`boundingbox`)) {
-        self$`boundingbox` <- ApiClient$new()$deserializeObj(LocationObject$`boundingbox`, "array[character]", loadNamespace("openapi"))
+        self$`boundingbox` <- ApiClient$new()$deserializeObj(LocationObject$`boundingbox`, "array[character]", loadNamespace("locationiq"))
       }
       if (!is.null(LocationObject$`lat`)) {
         self$`lat` <- LocationObject$`lat`
@@ -361,7 +361,7 @@ Location <- R6::R6Class(
       self$`licence` <- LocationObject$`licence`
       self$`osm_type` <- LocationObject$`osm_type`
       self$`osm_id` <- LocationObject$`osm_id`
-      self$`boundingbox` <- ApiClient$new()$deserializeObj(LocationObject$`boundingbox`, "array[character]", loadNamespace("openapi"))
+      self$`boundingbox` <- ApiClient$new()$deserializeObj(LocationObject$`boundingbox`, "array[character]", loadNamespace("locationiq"))
       self$`lat` <- LocationObject$`lat`
       self$`lon` <- LocationObject$`lon`
       self$`display_name` <- LocationObject$`display_name`

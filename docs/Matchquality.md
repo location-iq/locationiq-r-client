@@ -1,4 +1,4 @@
-# openapi::Matchquality
+# locationiq::Matchquality
 
 ## Properties
 Name | Type | Description | Notes

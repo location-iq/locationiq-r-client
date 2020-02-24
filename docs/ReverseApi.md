@@ -16,7 +16,7 @@ Reverse geocoding is the process of converting a coordinate or location (latitud
 
 ### Example
 ```R
-library(openapi)
+library(locationiq)
 
 var.lat <- 40.7487727 # numeric | Latitude of the location to generate an address for.
 var.lon <- -73.9849336 # numeric | Longitude of the location to generate an address for.

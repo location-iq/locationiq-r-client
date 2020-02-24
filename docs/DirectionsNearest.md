@@ -1,4 +1,4 @@
-# openapi::DirectionsNearest
+# locationiq::DirectionsNearest
 
 ## Properties
 Name | Type | Description | Notes

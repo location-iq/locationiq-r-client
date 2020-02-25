@@ -5,6 +5,13 @@ context("Test Location")
 
 model.instance <- Location$new()
 
+test_that("distance", {
+  # tests for the property `distance` (numeric)
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`distance`, "EXPECTED_RESULT")
+})
+
 test_that("place_id", {
   # tests for the property `place_id` (character)
 
@@ -34,7 +41,7 @@ test_that("osm_id", {
 })
 
 test_that("boundingbox", {
-  # tests for the property `boundingbox` (character)
+  # tests for the property `boundingbox` (array[character])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`boundingbox`, "EXPECTED_RESULT")
@@ -94,5 +101,12 @@ test_that("namedetails", {
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`namedetails`, "EXPECTED_RESULT")
+})
+
+test_that("matchquality", {
+  # tests for the property `matchquality` (Matchquality)
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`matchquality`, "EXPECTED_RESULT")
 })
 

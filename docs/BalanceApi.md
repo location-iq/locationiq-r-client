@@ -42,5 +42,14 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | The request has been made from an unauthorized domain. |  -  |
+| **404** | No location or places were found for the given input |  -  |
+| **429** | Request exceeded the rate-limits set on your account |  -  |
+| **500** | Internal Server Error |  -  |
 

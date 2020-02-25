@@ -23,7 +23,9 @@ test_that("Search", {
   # @param integer  dedupe  Sometimes you have several objects in OSM identifying the same place or object in reality. The simplest case is a street being split in many different OSM ways due to different characteristics. Nominatim will attempt to detect such duplicates and only return one match; this is controlled by the dedupe parameter which defaults to 1. Since the limit is, for reasons of efficiency, enforced before and not after de-duplicating, it is possible that de-duplicating leaves you with less results than requested.  (optional)
   # @param integer  extratags  Include additional information in the result if available, e.g. wikipedia link, opening hours.  (optional)
   # @param integer  statecode  Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0  (optional)
-  # @return [Location]
+  # @param integer  matchquality  Returns additional information about quality of the result in a matchquality object. Read more Defaults to 0 [0,1]  (optional)
+  # @param integer  postaladdress  Returns address inside the postaladdress key, that is specifically formatted for each country. Currently supported for addresses in Germany. Defaults to 0 [0,1]  (optional)
+  # @return [array[Location]]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

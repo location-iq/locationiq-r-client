@@ -87,14 +87,14 @@
 #' ####################  Autocomplete  ####################
 #'
 #' library(locationiq)
-#' var.q <- '\"Empire state\"' # character | Address to geocode
+#' var.q <- 'Empire state' # character | Address to geocode
 #' var.normalizecity <- 1 # integer | For responses with no city value in the address section, the next available element in this order - city_district, locality, town, borough, municipality, village, hamlet, quarter, neighbourhood - from the address section will be normalized to city. Defaults to 1 for SDKs.
 #' var.limit <- 10 # integer | Limit the number of returned results. Default is 10.
-#' var.viewbox <- '\"-132.84908,47.69382,-70.44674,30.82531\"' # character | The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. Tuple of 4 floats. Any two corner points of the box - `max_lon,max_lat,min_lon,min_lat` or `min_lon,min_lat,max_lon,max_lat` - are accepted in any order as long as they span a real box. 
+#' var.viewbox <- '-132.84908,47.69382,-70.44674,30.82531' # character | The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. Tuple of 4 floats. Any two corner points of the box - `max_lon,max_lat,min_lon,min_lat` or `min_lon,min_lat,max_lon,max_lat` - are accepted in any order as long as they span a real box. 
 #' var.bounded <- 1 # integer | Restrict the results to only items contained with the viewbox
-#' var.countrycodes <- '\"us\"' # character | Limit search to a list of countries.
-#' var.accept.language <- '\"en\"' # character | Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language=native
-#' var.tag <- '\"place\"' # character | Restricts the autocomplete search results to elements of specific OSM class and type.  Example - To restrict results to only class place and type city: tag=place:city, To restrict the results to all of OSM class place: tag=place
+#' var.countrycodes <- 'us' # character | Limit search to a list of countries.
+#' var.accept.language <- 'en' # character | Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language=native
+#' var.tag <- 'place' # character | Restricts the autocomplete search results to elements of specific OSM class and type.  Example - To restrict results to only class place and type city: tag=place:city, To restrict the results to all of OSM class place: tag=place
 #'
 #' api.instance <- AutocompleteApi$new()
 #'

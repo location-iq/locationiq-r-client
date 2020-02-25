@@ -94,20 +94,20 @@
 #' ####################  Matching  ####################
 #'
 #' library(locationiq)
-#' var.coordinates <- '\"-0.16102,51.523854;-0.15797,51.52326;-0.161593,51.522550\"' # character | String of format {longitude},{latitude};{longitude},{latitude}[;{longitude},{latitude} ...] or polyline({polyline}) or polyline6({polyline6}). polyline follows Google's polyline format with precision 5
-#' var.generate.hints <- '\"false\"' # character | Adds a Hint to the response which can be used in subsequent requests, see hints parameter. Input Value - true (default), false Format - Base64 String
-#' var.approaches <- '\"curb;curb;curb\"' # character | Keep waypoints on curb side. Input Value - {approach};{approach}[;{approach} ...] Format - curb or unrestricted (default)
-#' var.exclude <- '\"toll\"' # character | Additive list of classes to avoid, order does not matter. input Value - {class}[,{class}] Format - A class name determined by the profile or none.
-#' var.bearings <- '\"None\"' # character | Limits the search to segments with given bearing in degrees towards true north in clockwise direction. List of positive integer pairs separated by semi-colon and bearings array should be equal to length of coordinate array. Input Value :- {bearing};{bearing}[;{bearing} ...] Bearing follows the following format : bearing {value},{range} integer 0 .. 360,integer 0 .. 180
-#' var.radiuses <- '\"None\"' # character | Limits the search to given radius in meters Radiuses array length should be same as coordinates array, eaach value separated by semi-colon. Input Value - {radius};{radius}[;{radius} ...] Radius has following format :- double >= 0 or unlimited (default)
-#' var.steps <- '\"true\"' # character | Returned route steps for each route leg [ true, false (default) ]
-#' var.annotations <- '"false"' # character | Returns additional metadata for each coordinate along the route geometry.  [ true, false (default), nodes, distance, duration, datasources, weight, speed ]
-#' var.geometries <- '"polyline"' # character | Returned route geometry format (influences overview and per step) [ polyline (default), polyline6, geojson ]
-#' var.overview <- '"simplified"' # character | Add overview geometry either full, simplified according to highest zoom level it could be display on, or not at all. [ simplified (default), full, false ]
-#' var.timestamps <- '\"200;300;900\"' # character | Timestamps for the input locations in seconds since UNIX epoch. Timestamps need to be monotonically increasing. [ {timestamp};{timestamp}[;{timestamp} ...]  integer seconds since UNIX epoch
-#' var.gaps <- '"split"' # character | Allows the input track splitting based on huge timestamp gaps between points. [ split (default), ignore ]
-#' var.tidy <- '"false"' # character | Allows the input track modification to obtain better matching quality for noisy tracks. [ true, false (default) ]
-#' var.waypoints <- '\"0;1;2\"' # character | Treats input coordinates indicated by given indices as waypoints in returned Match object. Default is to treat all input coordinates as waypoints. [ {index};{index};{index}... ]
+#' var.coordinates <- '-0.16102,51.523854;-0.15797,51.52326;-0.161593,51.522550' # character | String of format {longitude},{latitude};{longitude},{latitude}[;{longitude},{latitude} ...] or polyline({polyline}) or polyline6({polyline6}). polyline follows Google's polyline format with precision 5
+#' var.generate.hints <- 'false' # character | Adds a Hint to the response which can be used in subsequent requests, see hints parameter. Input Value - true (default), false Format - Base64 String
+#' var.approaches <- 'curb;curb;curb' # character | Keep waypoints on curb side. Input Value - {approach};{approach}[;{approach} ...] Format - curb or unrestricted (default)
+#' var.exclude <- 'toll' # character | Additive list of classes to avoid, order does not matter. input Value - {class}[,{class}] Format - A class name determined by the profile or none.
+#' var.bearings <- 'None' # character | Limits the search to segments with given bearing in degrees towards true north in clockwise direction. List of positive integer pairs separated by semi-colon and bearings array should be equal to length of coordinate array. Input Value :- {bearing};{bearing}[;{bearing} ...] Bearing follows the following format : bearing {value},{range} integer 0 .. 360,integer 0 .. 180
+#' var.radiuses <- 'None' # character | Limits the search to given radius in meters Radiuses array length should be same as coordinates array, eaach value separated by semi-colon. Input Value - {radius};{radius}[;{radius} ...] Radius has following format :- double >= 0 or unlimited (default)
+#' var.steps <- 'true' # character | Returned route steps for each route leg [ true, false (default) ]
+#' var.annotations <- 'false' # character | Returns additional metadata for each coordinate along the route geometry.  [ true, false (default), nodes, distance, duration, datasources, weight, speed ]
+#' var.geometries <- 'polyline' # character | Returned route geometry format (influences overview and per step) [ polyline (default), polyline6, geojson ]
+#' var.overview <- 'simplified' # character | Add overview geometry either full, simplified according to highest zoom level it could be display on, or not at all. [ simplified (default), full, false ]
+#' var.timestamps <- '200;300;900' # character | Timestamps for the input locations in seconds since UNIX epoch. Timestamps need to be monotonically increasing. [ {timestamp};{timestamp}[;{timestamp} ...]  integer seconds since UNIX epoch
+#' var.gaps <- 'split' # character | Allows the input track splitting based on huge timestamp gaps between points. [ split (default), ignore ]
+#' var.tidy <- 'false' # character | Allows the input track modification to obtain better matching quality for noisy tracks. [ true, false (default) ]
+#' var.waypoints <- '0;1;2' # character | Treats input coordinates indicated by given indices as waypoints in returned Match object. Default is to treat all input coordinates as waypoints. [ {index};{index};{index}... ]
 #'
 #' #Matching Service
 #' api.instance <- MatchingApi$new()

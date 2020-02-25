@@ -20,10 +20,10 @@ library(locationiq)
 
 var.lat <- 40.7487727 # numeric | Latitude of the location to generate an address for.
 var.lon <- -73.9849336 # numeric | Longitude of the location to generate an address for.
-var.format <- '\"json\"' # character | Format to geocode. Only JSON supported for SDKs
+var.format <- 'json' # character | Format to geocode. Only JSON supported for SDKs
 var.normalizecity <- 1 # integer | Normalizes village to city level data to city
 var.addressdetails <- 1 # integer | Include a breakdown of the address into elements. Defaults to 1.
-var.accept.language <- '\"en\"' # character | Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language=native
+var.accept.language <- 'en' # character | Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language=native
 var.namedetails <- 0 # integer | Include a list of alternative names in the results. These may include language variants, references, operator and brand.
 var.extratags <- 0 # integer | Include additional information in the result if available, e.g. wikipedia link, opening hours.
 var.statecode <- 0 # integer | Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0
